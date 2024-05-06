@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key value store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Key value store</h1>
+
+    <h2>Add Key-value pair</h2>
+    <form method="POST" action="/">
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key">
+        <label for="value">Value</label>
+        <input type="text" name="value" id="value">
+        <button type="submit" name="add_pair">Add pair</button>
+    </form>
+
+    <h2>Update Key-value pair</h2>
+    <form method="POST" action="/">
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key">
+        <label for="value">New Value</label>
+        <input type="text" name="value" id="value">
+        <button type="submit" name="update_pair">Update pair</button>
+    </form>
+
+    <h2>Key-value pairs</h2>
+    <ul>
+        {% for key, value in key_value_pairs.items() %}
+        <li> {{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
